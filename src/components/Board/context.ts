@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { Collumn } from '../../services/api';
 
 interface BoardContext {
-    move: (from: any, to: any) => void,
+    move: (listIndex: number,toList: number, from: number, to: number) => void,
     lists: Collumn[]
 }
 

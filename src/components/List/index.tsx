@@ -7,12 +7,13 @@ import Card from '../Card';
 import { Collumn } from '../../services/api';
 
 interface Props {
-  data: Collumn
+  data: Collumn,
+  index: number
 }
 
 
 
-const List: React.FC<Props> = ({ data }) => {
+const List: React.FC<Props> = ({ data, index: listIndex }) => {
   return (
     <Container done={data.done}>
       <header>
@@ -28,7 +29,7 @@ const List: React.FC<Props> = ({ data }) => {
 
       <ul>
         {
-          data.cards.map((card,index) => <Card key={card.id} index={index} data={card} />)
+          data.cards.map((card, index) => <Card key={card.id} index={index} data={card} listIndex={listIndex} />)
         }
       </ul>
     </Container>
