@@ -20,7 +20,10 @@ interface DragItem {
   listIndex: number
 }
 
+
+
 const Card: React.FC<Props> = ({ data, index, listIndex }) => {
+
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -31,17 +34,24 @@ const Card: React.FC<Props> = ({ data, index, listIndex }) => {
     collect: monitor => ({
       isDragging: monitor.isDragging(),
     }),
+    end: (item, monitor) => {
+      const { listIndex: draggedListIndex, listIndex: targetListIndex, index: draggedIndex, } = monitor.getItem();
+      const didDrop = monitor.didDrop(); 
+      
+      move(draggedListIndex, targetListIndex, draggedIndex, index, false, didDrop);
+    },
   });
 
   const [, dropRef] = useDrop({
     accept: 'CARD',
+    canDrop: () => true,
     hover(item: DragItem, monitor) {
       const draggedListIndex = item.listIndex;
       const targetListIndex = listIndex;
 
       const draggedIndex = item.index;
       const targetIndex = index;
-
+      
       if (draggedIndex === targetIndex && draggedListIndex === targetListIndex) {
         return;
       }
@@ -58,13 +68,14 @@ const Card: React.FC<Props> = ({ data, index, listIndex }) => {
           if (draggedIndex > targetIndex && draggedTop > targetCenter)
             return;
 
-          move(draggedListIndex,targetListIndex, draggedIndex, targetIndex);
+          move(draggedListIndex, targetListIndex, draggedIndex, targetIndex, true, false);
 
           item.index = targetIndex;
           item.listIndex = targetListIndex;
         }
       }
-    }
+
+    },
   });
 
   dragRef(dropRef(ref));

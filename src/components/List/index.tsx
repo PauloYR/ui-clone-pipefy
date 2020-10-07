@@ -11,8 +11,6 @@ interface Props {
   index: number
 }
 
-
-
 const List: React.FC<Props> = ({ data, index: listIndex }) => {
   return (
     <Container done={data.done}>
