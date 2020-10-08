@@ -10,14 +10,17 @@ export const GlobalStyles = createGlobalStyle`
     }
     
     html, body, #root{
-        height: 100%;
+        height: 100%;        
     }
+    
 
     body{        
         font: 14px 'Roboto', sans-serif;
         background: #ecf1f8;
         color: #333;
         -webkit-font-smoothing: antialiased !important;
+        width: 100%;    
+        
     }
 
     ul{

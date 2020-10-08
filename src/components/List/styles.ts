@@ -5,10 +5,10 @@ interface ContainerData{
 }
 
 export const Container = styled.div< ContainerData >`
-    padding: 0 15px;
-    height: 100%;
+    padding: 0 15px;    
     flex: 0 0 320px;
     opacity: ${props=> props.done ? 0.6 : 1};
+    width: 100%;
 
     & + div{ 
         border-left: 1px solid rgba(0, 0, 0, 0.5);
@@ -37,6 +37,9 @@ export const Container = styled.div< ContainerData >`
 
     ul{
         margin-top: 30px;
+        width: 100%;
+        height: 100%;        
+        overflow-y: auto;  
     }
   
 `;
