@@ -36,10 +36,55 @@ export const Container = styled.div< ContainerData >`
     }
 
     ul{
-        margin-top: 30px;
+        margin-top: 10px;
         width: 100%;
         height: 90%;        
         overflow-y: auto;  
     }
   
+`;
+
+export const AddCard = styled.div`
+  position: relative;
+  background: #FFF;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 15px;
+  box-shadow: 0 1px 4px 0 rgba(192, 208, 230, 0.8);  
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  input{
+      border: 0;
+      background: #E5F0E7;
+      border-radius: 10px;
+      margin-top: 0px;
+      padding: 5px 10px;
+      height: 40px;
+      width: 100%;
+      font-family:"Roboto" , sans-serif;
+
+      font-weight: 500;
+      line-height: 20px;
+      
+      &::placeholder{
+        color: #BCDCC1;
+      }
+  }
+
+  button{
+      margin-top: 10px;
+      background: #3b5dfd;
+      color: #FFF;
+      border: 0;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-family:"Roboto" , sans-serif;
+      font-weight: 500;
+      width: 100%;
+      float: left;
+      cursor: pointer;
+  }
 `;

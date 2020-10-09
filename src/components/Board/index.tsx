@@ -42,7 +42,7 @@ const Board: React.FC = () => {
   }
 
   return (
-    <BoardContext.Provider value={{ lists, move }}>
+    <BoardContext.Provider value={{ lists, move, setLists }}>
       <Container>
         {
           lists.map((item, index) => <List key={item.title} index={index} data={item} />)
